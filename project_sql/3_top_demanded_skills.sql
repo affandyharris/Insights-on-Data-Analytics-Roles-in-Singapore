@@ -9,7 +9,7 @@ Q: What are the most in-demand skills for data analysts in Singapore?
 
 SELECT 
     skills,
-    COUNT(sj.job_id) AS demand_count
+    COUNT(jp.job_id) AS demand_count
 FROM 
     job_postings_fact jp
 INNER JOIN 
@@ -18,7 +18,7 @@ INNER JOIN
     skills_dim sk ON sk.skill_id = sj.skill_id
 WHERE 
     jp.job_location = 'Singapore' AND
-    job_title_short = 'Data Analyst'
+    jp.job_title_short = 'Data Analyst'
 GROUP BY    
     skills
 ORDER BY 
